@@ -1,7 +1,7 @@
 {
-  "name": "please-star-first",
-  "version": "1.0.0",
-  "description": "Please Star First GitHub Action",
+  "name": "please-star-light",
+  "version": "1.0.1",
+  "description": "Please Star Light GitHub Action",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,15 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qxip/please-star-first.git"
+    "url": "git+https://github.com/qxip/please-star-light.git"
   },
   "keywords": [],
-  "author": "uhyo <uhyo@uhy.ooo>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qxip/please-star-first/issues"
+    "url": "https://github.com/qxip/please-star-light/issues"
   },
-  "homepage": "https://github.com/qxip/please-star-first#readme",
+  "homepage": "https://github.com/qxip/please-star-light#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
