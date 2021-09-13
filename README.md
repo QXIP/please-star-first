@@ -1,6 +1,8 @@
 # Please Star First GitHub Action
 
-This GitHub Action automatically closes issues opened by non-stargazers.
+### OSS Starring Partner
+
+This GitHub Action automatically comments issues opened by non-stargazers.
 
 **Feel free to try out in this repository!**
 
@@ -14,8 +16,8 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
-    name: Close issue opened by non-stargazer
+    name: Comment issue opened by non-stargazer
     steps:
-      - name: close
-        uses: uhyo/please-star-first@v1
+      - name: star
+        uses: qxip/please-star-light@v1.0.0
 ```
