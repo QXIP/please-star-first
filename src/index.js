@@ -44,11 +44,14 @@ async function handleIssues(octokit, payload) {
 
 ${message}`
   })
+
+  /*
   await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
     ...github.context.repo,
     issue_number: payload.issue.number,
     state: "closed"
   })
+  */
 }
 
 /**

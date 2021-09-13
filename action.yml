@@ -1,6 +1,6 @@
 name: "Please Star First"
-author: "uhyo"
-description: "Automatically closes issues opened by non-stargazers"
+author: "qxip"
+description: "Automatically comments issues opened by non-stargazers"
 branding:
   icon: star
   color: yellow
@@ -13,7 +13,7 @@ inputs:
     description: "Message"
     required: false
     default: |
-      Please star this repository before opening an issue.
+      Please star this repository to motivate developers.
 
       Thanks!
 runs:
