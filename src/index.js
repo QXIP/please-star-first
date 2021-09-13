@@ -3,7 +3,6 @@ import github from '@actions/github';
 
 try {
   const token = core.getInput('token');
-
   const octokit = github.getOctokit(token);
 
   // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
@@ -31,6 +30,15 @@ async function handleIssues(octokit, payload) {
   const { sender } = payload;
   if (await isStarredBy(octokit, sender.login)) {
     console.log(`${sender.login} has starred this repository`)
+    
+    const label = core.getInput('label') || false;
+    if (label && label != "") {
+      await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+        ...github.context.repo,
+        issue_number: payload.issue.number,
+        labels: label
+      })
+    }
     return;
   }
   console.log(`${sender.login} has not starred this repository`)
@@ -44,14 +52,16 @@ async function handleIssues(octokit, payload) {
 
 ${message}`
   })
-
-  /*
-  await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-    ...github.context.repo,
-    issue_number: payload.issue.number,
-    state: "closed"
-  })
-  */
+ 
+  const autoclose = core.getInput('autoclose') || false;
+  if (autoclose && autoclose != "") {
+      await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+        ...github.context.repo,
+        issue_number: payload.issue.number,
+        state: "closed"
+      })
+  }
+  
 }
 
 /**
