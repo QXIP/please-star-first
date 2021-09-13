@@ -4,20 +4,22 @@
 
 This GitHub Action automatically comments issues opened by non-stargazers.
 
-**Feel free to try out in this repository!**
-
-## Usage
+## Usage Example
 
 ```yml
+name: Starring Partner
 on:
   issues:
     types: [opened, reopened]
-
 jobs:
-  greet:
+  # This workflow contains a single job called "greet"
+  starcheck:
     runs-on: ubuntu-latest
-    name: Comment issue opened by non-stargazer
     steps:
-      - name: star
-        uses: qxip/please-star-light@v1.0.0
+    - name: Please Star First
+      uses: qxip/please-star-light@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # Custom Message
+        message: "Please star this repository to motivate the developers and to get higher priority! :star:"
 ```
