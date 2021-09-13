@@ -20,6 +20,7 @@ jobs:
       uses: qxip/please-star-light@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        # Custom Message
-        message: "Please star this repository to motivate the developers and to get higher priority! :star:"
+        message: "Please star this repository to motivate developers! :star:"
+        # label: "stargazed"
+        # autoclose: true
 ```
