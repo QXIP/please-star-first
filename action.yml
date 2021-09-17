@@ -9,6 +9,14 @@ inputs:
     description: "GitHub token for use by this action."
     required: false
     default: ${{ github.token }}
+  autoclose:
+    description: "Auto-Close Unstarred Issues"
+    required: false
+    default: false
+  label:
+    description: "Auto-Close Unstarred Issues"
+    required: false
+    default: false
   message:
     description: "Message"
     required: false
