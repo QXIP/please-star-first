@@ -13,4 +13,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         message: "Please star this repository to motivate developers! :star:"
         # label: "stargazed"
-        # autoclose: true
+        autoclose: true
