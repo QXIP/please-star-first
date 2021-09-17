@@ -12,12 +12,12 @@ on:
   issues:
     types: [opened, reopened]
 jobs:
-  # This workflow contains a single job called "greet"
+  # This workflow checks if a user has starred a repository and takes actions
   starcheck:
     runs-on: ubuntu-latest
     steps:
     - name: Please Star First
-      uses: qxip/please-star-light@v2
+      uses: qxip/please-star-light@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         message: "Please star this repository to motivate developers! :star:"
