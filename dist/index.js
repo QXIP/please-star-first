@@ -6171,7 +6171,7 @@ async function handleIssues(octokit, payload) {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
         issue_number: payload.issue.number,
-        labels: label
+        labels: [label]
       })
     }
     return;

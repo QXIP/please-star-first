@@ -36,7 +36,7 @@ async function handleIssues(octokit, payload) {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ...github.context.repo,
         issue_number: payload.issue.number,
-        labels: label
+        labels: [label]
       })
     }
     return;
