@@ -1,4 +1,4 @@
-# Please Star First GitHub Action
+# :star: Please Star First GitHub Action
 
 ### OSS Starring Partner
 
