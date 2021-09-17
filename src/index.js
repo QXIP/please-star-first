@@ -32,7 +32,7 @@ async function handleIssues(octokit, payload) {
     console.log(`${sender.login} has starred this repository`)
     
     const label = core.getInput('label') || false;
-    if (label && label != "") {
+    if (label && label != "false") {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ...github.context.repo,
         issue_number: payload.issue.number,
@@ -54,7 +54,7 @@ ${message}`
   })
  
   const autoclose = core.getInput('autoclose') || false;
-  if (autoclose && autoclose != "") {
+  if (autoclose && autoclose != "false") {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ...github.context.repo,
         issue_number: payload.issue.number,

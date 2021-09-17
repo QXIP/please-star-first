@@ -6167,7 +6167,7 @@ async function handleIssues(octokit, payload) {
     console.log(`${sender.login} has starred this repository`)
     
     const label = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('label') || false;
-    if (label && label != "") {
+    if (label && label != "false") {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
         issue_number: payload.issue.number,
@@ -6189,7 +6189,7 @@ ${message}`
   })
  
   const autoclose = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('autoclose') || false;
-  if (autoclose && autoclose != "") {
+  if (autoclose && autoclose != "false") {
       await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
         ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
         issue_number: payload.issue.number,
