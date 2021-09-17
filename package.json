@@ -1,6 +1,6 @@
 {
   "name": "please-star-light",
-  "version": "1.0.1",
+  "version": "2.1.0",
   "description": "Please Star Light GitHub Action",
   "main": "index.js",
   "type": "module",

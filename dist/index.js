@@ -6138,7 +6138,6 @@ __webpack_require__.r(__webpack_exports__);
 
 try {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('token');
-
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token);
 
   // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
@@ -6166,6 +6165,15 @@ async function handleIssues(octokit, payload) {
   const { sender } = payload;
   if (await isStarredBy(octokit, sender.login)) {
     console.log(`${sender.login} has starred this repository`)
+    
+    const label = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('label') || false;
+    if (label && label != "") {
+      await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+        ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+        issue_number: payload.issue.number,
+        labels: label
+      })
+    }
     return;
   }
   console.log(`${sender.login} has not starred this repository`)
@@ -6179,14 +6187,16 @@ async function handleIssues(octokit, payload) {
 
 ${message}`
   })
-
-  /*
-  await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-    ...github.context.repo,
-    issue_number: payload.issue.number,
-    state: "closed"
-  })
-  */
+ 
+  const autoclose = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('autoclose') || false;
+  if (autoclose && autoclose != "") {
+      await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+        ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+        issue_number: payload.issue.number,
+        state: "closed"
+      })
+  }
+  
 }
 
 /**
