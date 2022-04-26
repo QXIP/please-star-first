@@ -14,7 +14,11 @@ inputs:
     required: false
     default: false
   label:
-    description: "Auto-Close Unstarred Issues"
+    description: "Auto-Apply a label for stargazed users"
+    required: false
+    default: false
+  repo:
+    description: "Use a different repository"
     required: false
     default: false
   message:
