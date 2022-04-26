@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Please Star First
-      uses: qxip/please-star-light@v3
+      uses: qxip/please-star-light@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         message: "Please star this repository to motivate developers! :star:"
